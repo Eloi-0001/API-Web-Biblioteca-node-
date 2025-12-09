@@ -17,4 +17,8 @@ router.delete("/RemoverLista/", (req, res) => {
   res.send(`Chegou aqui, estamos criando um novo atendimento...`);
 });
 
+router.get("/VisualizarLivro"), (req,res) => {
+  res.send("Finge que tem um livro.")
+}
+
 module.exports = router;

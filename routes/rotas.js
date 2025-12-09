@@ -1,24 +1,27 @@
 const { Router } = require("express");
 const router = Router();
 
-router.get("/AddLista", (req, res) => {
-  res.send("Chegou aqui, estamos listando todos atendimentos...");
+router.post("/api/criar", (req, res) => {
+  res.send("cadastrar livros...");
 });
 
-router.post("/EditarLista", (req, res) => {
-  res.send("Chegou aqui, estamos criando um novo atendimento...");
+router.get("/api/lertodos", (req, res) => {
+  res.send("todas as listas dos livros...");
 });
 
-router.put("/VisualizarLista/", (req, res) => {
-  res.send(`Chegou aqui, estamos atualizando o atendimento...`);
+router.get("/api/livroporid/:id", (req, res) => {
+  const { id } = req.params;
+  res.send("Livro especifico por id");
 });
 
-router.delete("/RemoverLista/", (req, res) => {
-  res.send(`Chegou aqui, estamos criando um novo atendimento...`);
+router.patch("/api/atualizar/:id", (req, res) => {
+  const { id } = req.params;
+  res.send("Atualizar livro...");
 });
 
-router.get("/VisualizarLivro"), (req,res) => {
-  res.send("Finge que tem um livro.")
-}
+router.delete("/api/deletar/:id", (req, res) => {
+  const { id } = req.params;
+  res.send("Deletar livro do sistema...");
+});
 
 module.exports = router;

@@ -13,12 +13,14 @@ router.get("/api/criar", (req, res) => {
 });
 
 router.get("/api/atualizar/:id", (req, res) => {
-  const resposta = atendimentoController.atualizar();
+  const { id } = req.params;
+  const resposta = atendimentoController.atualizar(id);
   res.send(resposta);
 });
 
-router.patch("/api/deletar/:id", (req, res) => {
-  const resposta = atendimentoController.deletar();
+router.get("/api/deletar/:id", (req, res) => {
+  const { id } = req.params;
+  const resposta = atendimentoController.deletar(id);
   res.send(resposta);
 });
 

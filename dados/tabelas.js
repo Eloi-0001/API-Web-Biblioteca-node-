@@ -1,6 +1,7 @@
 class tabela {
   init(conexao) {
     this.conexao = conexao;
+    this.criarTabela();
   }
   criarTabela() {
     const sql = `
@@ -17,8 +18,12 @@ class tabela {
     this.conexao.query(sql, (error) => {
       if (error) {
         console.log("Erro no banco de dados");
-        console.log(error.message());
+        console.log(error.message);
+        return;
       }
+      console.log("Sem erros na tabela.");
     });
   }
 }
+
+module.exports = new tabela();

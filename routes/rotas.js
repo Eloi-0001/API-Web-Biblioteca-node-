@@ -7,23 +7,19 @@ router.get("/api/buscar", (req, res) => {
   res.send(resposta);
 });
 
-router.get("/api/lertodos", (req, res) => {
-  res.send("todas as listas dos livros...");
+router.get("/api/criar", (req, res) => {
+  const resposta = atendimentoController.criar();
+  res.send(resposta);
 });
 
-router.get("/api/livroporid/:id", (req, res) => {
-  const { id } = req.params;
-  res.send("Livro especifico por id");
+router.get("/api/atualizar/:id", (req, res) => {
+  const resposta = atendimentoController.atualizar();
+  res.send(resposta);
 });
 
-router.patch("/api/atualizar/:id", (req, res) => {
-  const { id } = req.params;
-  res.send("Atualizar livro...");
-});
-
-router.delete("/api/deletar/:id", (req, res) => {
-  const { id } = req.params;
-  res.send("Deletar livro do sistema...");
+router.patch("/api/deletar/:id", (req, res) => {
+  const resposta = atendimentoController.deletar();
+  res.send(resposta);
 });
 
 module.exports = router;

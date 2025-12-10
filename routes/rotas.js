@@ -1,27 +1,27 @@
 const { Router } = require("express");
 const router = Router();
+const atendimentoController = require("../controllers/controle");
 
-router.post("/api/criar", (req, res) => {
-  res.send("cadastrar livros...");
+router.get("/api/buscar", (req, res) => {
+  const resposta = atendimentoController.buscar();
+  res.send(resposta);
 });
 
-router.get("/api/lertodos", (req, res) => {
-  res.send("todas as listas dos livros...");
+router.get("/api/criar", (req, res) => {
+  const resposta = atendimentoController.criar();
+  res.send(resposta);
 });
 
-router.get("/api/livroporid/:id", (req, res) => {
+router.get("/api/atualizar/:id", (req, res) => {
   const { id } = req.params;
-  res.send("Livro especifico por id");
+  const resposta = atendimentoController.atualizar(id);
+  res.send(resposta);
 });
 
-router.patch("/api/atualizar/:id", (req, res) => {
+router.get("/api/deletar/:id", (req, res) => {
   const { id } = req.params;
-  res.send("Atualizar livro...");
-});
-
-router.delete("/api/deletar/:id", (req, res) => {
-  const { id } = req.params;
-  res.send("Deletar livro do sistema...");
+  const resposta = atendimentoController.deletar(id);
+  res.send(resposta);
 });
 
 module.exports = router;

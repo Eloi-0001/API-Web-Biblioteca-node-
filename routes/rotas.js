@@ -4,6 +4,7 @@ const atendimentoController = require("../controllers/controle");
 
 router.get("/api/buscar", (req, res) => {
   const resposta = atendimentoController.buscar();
+  console.log(resposta);
   res.send(resposta);
 });
 

@@ -1,15 +1,16 @@
+const atendimentoModel = require("../model/bibliotecaModel");
 class atendimentoController {
   buscar() {
-    return "Buscando atendimento";
+    return atendimentoModel.listar();
   }
-  criar(){
+  criar() {
     return "Criando atendimento";
   }
   atualizar(id) {
     return `Alterar Livro de número ${id}`;
   }
-  deletar(id){
-    return `Deletar Livro de número ${id}`
+  deletar(id) {
+    return `Deletar Livro de número ${id}`;
   }
 }
 

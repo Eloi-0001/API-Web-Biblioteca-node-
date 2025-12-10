@@ -1,8 +1,10 @@
 const { Router } = require("express");
 const router = Router();
+const atendimentoController = require("../controllers/controle");
 
-router.post("/api/criar", (req, res) => {
-  res.send("cadastrar livros...");
+router.get("/api/buscar", (req, res) => {
+  const resposta = atendimentoController.buscar();
+  res.send(resposta);
 });
 
 router.get("/api/lertodos", (req, res) => {

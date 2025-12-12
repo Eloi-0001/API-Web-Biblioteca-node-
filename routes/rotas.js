@@ -7,7 +7,8 @@ router.get("/api/buscar", (req, res) => {
 });
 
 router.get("/api/criar", (req, res) => {
-  const resposta = atendimentoController.criar();
+  const novoLivro = req.body;
+  const resposta = atendimentoController.criar(novoLivro);
   res.send(resposta);
 });
 

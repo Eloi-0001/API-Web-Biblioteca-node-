@@ -14,6 +14,18 @@ class atendimentoModel {
       });
     });
   }
+
+  criar(atendimento) {
+    const sql = "INSERT INTO livro SET ?";
+    conexao.query(sql, atendimento, (error, resposta) => {
+      if (error) {
+        console.log("Erro no model");
+        reject(error);
+      }
+      console.log("Deu certo com o model");
+      resolve(resposta);
+    });
+  }
 }
 
 module.exports = new atendimentoModel();

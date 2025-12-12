@@ -6,7 +6,7 @@ class atendimentoController {
       .then((atendimentos) => res.status(200).json(atendimentos))
       .catch((error) => res.status(400).json(error.message));
   }
-  criar() {
+  criar(novoLivro) {
     return "Criando atendimento";
   }
   atualizar(id) {

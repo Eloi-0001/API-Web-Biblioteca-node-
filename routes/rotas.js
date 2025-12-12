@@ -3,13 +3,18 @@ const router = Router();
 const atendimentoController = require("../controllers/controle");
 
 router.get("/api/buscar", (req, res) => {
-  const resposta = atendimentoController.buscar();
-  res.send(resposta);
+  const lsitalivros = atendimentoController.buscar();
+  lsitalivros
+    .then((atendimentos) => res.status(200).json(atendimentos))
+    .catch((error) => res.status(400).json(error.message));
 });
 
 router.get("/api/criar", (req, res) => {
-  const resposta = atendimentoController.criar();
-  res.send(resposta);
+  const novoLivro = req.body;
+  const resposta = atendimentoController.criar(novoLivro);
+  resposta
+    .then((respostaCriada) => res.status(201).json(respostaCriada))
+    .catch((error) => res.status(400).json(error.message));
 });
 
 router.get("/api/atualizar/:id", (req, res) => {

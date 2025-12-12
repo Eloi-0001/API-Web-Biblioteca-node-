@@ -1,7 +1,10 @@
 const atendimentoModel = require("../model/bibliotecaModel");
 class atendimentoController {
   buscar() {
-    return atendimentoModel.listar();
+    const buscando = atendimentoController.buscar();
+    buscando
+      .then((atendimentos) => res.status(200).json(atendimentos))
+      .catch((error) => res.status(400).json(error.message));
   }
   criar() {
     return "Criando atendimento";

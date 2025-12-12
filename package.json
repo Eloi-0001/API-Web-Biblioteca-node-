@@ -12,6 +12,9 @@
   "type": "commonjs",
   "dependencies": {
     "express": "^5.2.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.20"
   }
 }

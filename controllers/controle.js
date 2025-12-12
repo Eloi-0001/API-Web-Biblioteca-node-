@@ -1,19 +1,31 @@
 const atendimentoModel = require("../model/bibliotecaModel");
+
 class atendimentoController {
+  // Método buscar: RETORNA a Promise, não lida com res/req
   buscar() {
-    const buscando = atendimentoController.buscar();
-    buscando
-      .then((atendimentos) => res.status(200).json(atendimentos))
-      .catch((error) => res.status(400).json(error.message));
+    return atendimentoModel.listar();
   }
+  
+  // Método criar: RETORNA a Promise
   criar(novoLivro) {
-    return "Criando atendimento";
+    return atendimentoModel.criar(novoLivro);
   }
-  atualizar(id) {
-    return `Alterar Livro de número ${id}`;
+  
+  // Método atualizar: implementação básica
+  atualizar(id, dadosAtualizados) {
+    // Por enquanto, retorna uma Promise resolvida
+    return Promise.resolve({ 
+      mensagem: `Livro ${id} atualizado`, 
+      dados: dadosAtualizados 
+    });
   }
+  
+  // Método deletar: implementação básica
   deletar(id) {
-    return `Deletar Livro de número ${id}`;
+    // Por enquanto, retorna uma Promise resolvida
+    return Promise.resolve({ 
+      mensagem: `Livro ${id} deletado` 
+    });
   }
 }
 

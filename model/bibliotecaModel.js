@@ -1,29 +1,34 @@
-const { response } = require("express");
 const conexao = require("../dados/conexoes");
+
 class atendimentoModel {
   listar() {
-    const sql = "select * from livro";
+    const sql = "SELECT * FROM livro";
     return new Promise((resolve, reject) => {
       conexao.query(sql, {}, (error, resposta) => {
         if (error) {
-          console.log("Erro no model");
+          console.log("Erro no model ao listar");
           reject(error);
+        } else {
+          console.log("Listagem bem-sucedida no model");
+          resolve(resposta);
         }
-        console.log("Deu certo com o model");
-        resolve(resposta);
       });
     });
   }
 
   criar(atendimento) {
     const sql = "INSERT INTO livro SET ?";
-    conexao.query(sql, atendimento, (error, resposta) => {
-      if (error) {
-        console.log("Erro no model");
-        reject(error);
-      }
-      console.log("Deu certo com o model");
-      resolve(resposta);
+    return new Promise((resolve, reject) => {
+      // ← PROMISE ADICIONADA
+      conexao.query(sql, atendimento, (error, resposta) => {
+        if (error) {
+          console.log("Erro no model ao criar");
+          reject(error);
+        } else {
+          console.log("Criação bem-sucedida no model");
+          resolve(resposta);
+        }
+      });
     });
   }
 }
